@@ -7,7 +7,7 @@ services:
       - MYSQL_ROOT_PASSWORD=db_dev  # Requested, set the root's password of MySQL service.
       - MYSQL_LOG_CONSOLE=true
     volumes:
-      - /WINDOWS/system32/docker/seafile-mysql/db:/var/lib/mysql  # Requested, specifies the path to MySQL data persistent store.
+      - /home/user/docker/seafile-mysql/db:/var/lib/mysql  # Requested, specifies the path to MySQL data persistent store.
     networks:
       - seafile-net
 
@@ -31,7 +31,7 @@ services:
         hard: -1
     mem_limit: 2g
     volumes:
-      - /WINDOWS/system32/docker/seafile-elasticsearch/data:/usr/share/elasticsearch/data //read, write and execute  # Requested, specifies the path to Elasticsearch data persistent store.
+      - /home/user/docker/seafile-elasticsearch/data:/usr/share/elasticsearch/data //read, write and execute  # Requested, specifies the path to Elasticsearch data persistent store.
     networks:
       - seafile-net
           
@@ -42,7 +42,7 @@ services:
       - "8290:80"
 #      - "443:443"  # If https is enabled, cancel the comment.
     volumes:
-      - /WINDOWS/system32/docker/seafile-data:/shared   # Requested, specifies the path to Seafile data persistent store.
+      - /home/user/docker/seafile-data:/shared   # Requested, specifies the path to Seafile data persistent store.
     environment:
       - DB_HOST=db
       - DB_ROOT_PASSWD=db_dev  # Requested, the value should be root's password of MySQL service.
